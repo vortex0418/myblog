@@ -9,12 +9,12 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/4.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-^r6s70=hh(n1k&hhs+42(%tq)#47(q^*m-g_gztp$l^!b02e6d'
+SECRET_KEY = 'django-insecure-=&!7vyfrt3*3g0_cu(+h!lyayo&&$mxl6xxjxen@382aovz4h3'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -27,6 +27,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'blog',
+    'common',
 ]
 
 MIDDLEWARE = [
@@ -108,10 +109,15 @@ USE_TZ = True
 STATIC_URL = 'static/'
 STATICFILES_DIRS = [BASE_DIR / 'static']
 
-MEDIA_URL = 'media/'
-MEDIA_ROOT = os.path.join(BASE_DIR, 'media')  # 프로젝트에 media폴더가 자동 생성
+#media 폴더 생성
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')  #프로젝트에 media폴더가 자동 생성
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+# 로그인, 로그아웃 요청시 경로 설정
+LOGIN_REDIRECT_URL ='/'
+LOGOUT_REDIRECT_URL ='/'
